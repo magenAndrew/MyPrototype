@@ -23,12 +23,19 @@ namespace MyPrototypeApp.Models.Engines
         {
             return MyClone();
         }
-
+        /// <summary>
+        /// Сделать возможность клонирования объекта для каждого из этих классов, используя вызовы родительских??? конструкторов.
+        /// </summary>
+        /// <returns></returns>
         public virtual Car MyClone()
         {
             return new Car ( new Engine(Engine.EPower, Engine.EType), DateCreation, СarBrand);
         }
-        public override string ToString()
+        /// <summary>
+        /// Добавить к каждому классу реализацию стандартного интерфейса ICloneable и реализовать его функционал через уже созданные методы.
+        /// </summary>
+        /// <returns></returns>
+        public virtual string ToString()
         {
             return $"Car DateCreation:{DateCreation},СarBrand:{СarBrand}  Engine( Power:{Engine.EPower}, Type: {Engine.EType.ToString()}";
         }

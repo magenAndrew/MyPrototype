@@ -16,12 +16,20 @@ namespace MyPrototypeApp.Models.Engines
             LoadCapacity = loadCapacity;
         }
 
- 
+
+        /// <summary>
+        /// Сделать возможность клонирования объекта для каждого из этих классов, используя вызовы родительских??? конструкторов.
+        /// </summary>
+        /// <returns></returns>
         public override object Clone()
         {
             return MyClone();
         }
 
+        /// <summary>
+        /// Добавить к каждому классу реализацию стандартного интерфейса ICloneable и реализовать его функционал через уже созданные методы.
+        /// </summary>
+        /// <returns></returns>
         public override Truck MyClone()
         {
             return new Truck(new Engine(Engine.EPower, Engine.EType), DateCreation, СarBrand, LoadCapacity);

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using MyPrototypeApp.Enums;
-using MyPrototypeApp.Models.Cars;
+﻿using MyPrototypeApp.Models.Cars;
 
 namespace MyPrototypeApp.Models.Engines
 {
@@ -22,5 +15,6 @@ namespace MyPrototypeApp.Models.Engines
         {
             return $"Transport Engine( Power:{Engine.EPower}, Type: {Engine.EType.ToString()}";
         }
-    }
+
+     }
 }
