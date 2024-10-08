@@ -7,10 +7,23 @@ using System.Threading.Tasks;
 
 namespace MyPrototypeApp.Models.Engines
 {
+    /// <summary>
+    /// Грузовик. 
+    /// </summary>
     public class Truck : Car, ICloneable, IMyClonable<Car>
     {
+        /// <summary>
+        /// Грузоподъемность
+        /// </summary>
         public int LoadCapacity { get; set; }
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="engine"></param>
+        /// <param name="dateCreation"></param>
+        /// <param name="carBrand"></param>
+        /// <param name="loadCapacity"></param>
         public Truck(Engine engine, DateTime dateCreation, string carBrand, int loadCapacity) : base(engine, dateCreation, carBrand)
         {
             LoadCapacity = loadCapacity;
@@ -34,6 +47,10 @@ namespace MyPrototypeApp.Models.Engines
         {
             return new Truck(new Engine(Engine.EPower, Engine.EType), DateCreation, СarBrand, LoadCapacity);
         }
+        /// <summary>
+        /// Переопределение стандартной функции
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"Truck DateCreation:{DateCreation},СarBrand:{СarBrand}, LoadCapacity:{LoadCapacity}  Engine( Power:{Engine.EPower}, Type: {Engine.EType.ToString()}";

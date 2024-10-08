@@ -7,14 +7,31 @@ using System.Threading.Tasks;
 
 namespace MyPrototypeApp.Models.Engines
 {
+    /// <summary>
+    /// Легковой автомобиль
+    /// </summary>
     public class PassengerCar : Car, ICloneable, IMyClonable<Car>
     {
+        /// <summary>
+        /// Максимальная скорость
+        /// </summary>
+        public int MaxSpeed { get; }
+
+        /// <summary>
+        /// Легковой автомобиль
+        /// </summary>
+        /// <param name="engine"></param>
+        /// <param name="dateCreation"></param>
+        /// <param name="carBrand"></param>
+        /// <param name="maxSpeed"></param>
         public PassengerCar(Engine engine, DateTime dateCreation, string carBrand, int maxSpeed) : base(engine, dateCreation, carBrand)
         {
             MaxSpeed = maxSpeed;
         }
-
-        public int MaxSpeed { get;}
+        /// <summary>
+        /// Добавить к каждому классу реализацию стандартного интерфейса ICloneable и реализовать его функционал через уже созданные методы.
+        /// </summary>
+        /// <returns></returns>
         public override object Clone()
         {
             return MyClone();
@@ -27,11 +44,9 @@ namespace MyPrototypeApp.Models.Engines
         {
             return new PassengerCar(new Engine(Engine.EPower, Engine.EType), DateCreation, СarBrand, MaxSpeed);
         }
-
         /// <summary>
-        /// Добавить к каждому классу реализацию стандартного интерфейса ICloneable и реализовать его функционал через уже созданные методы.
+        /// Переопределение стандартной функции
         /// </summary>
-        /// <returns></returns>
         public override string ToString()
         {
             return $"PassengerCar DateCreation:{DateCreation},СarBrand:{СarBrand}, MaxSpeed:{MaxSpeed}  Engine( Power:{Engine.EPower}, Type: {Engine.EType.ToString()}";
